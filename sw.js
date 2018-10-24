@@ -20,3 +20,13 @@ const resourcesToCache = [
   '/img/9.jpg',
   '/img/10.jpg'
 ];
+
+self.addEventListener('install', function(event) {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(resourcesToCache);
+      })
+  );
+});
