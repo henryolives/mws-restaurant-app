@@ -1,6 +1,6 @@
 // create variables for the cache and the resources to cache
-const CACHE_NAME = 'restaurant-review-cache-v1';
-const resourcesToCache = [
+const CACHE_NAME = 'restaurant-review-cache-v1',
+      resourcesToCache = [
   './',
   './index.html',
   './restaurant.html',
@@ -19,12 +19,6 @@ const resourcesToCache = [
   './img/8.jpg',
   './img/9.jpg',
   './img/10.jpg',
-  'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png',
-  'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
-  'https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png',
-  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
-  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css'
-  
 ];
 
 self.addEventListener('install', function(event) {
