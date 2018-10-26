@@ -19,7 +19,12 @@ const CACHE_NAME = 'restaurant-review-cache-v1',
   './img/8.jpg',
   './img/9.jpg',
   './img/10.jpg',
-];
+  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
+  'https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js',
+  'https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css'
+  
+];  
 
 self.addEventListener('install', function(event) {
   // Perform install steps
@@ -57,4 +62,22 @@ self.addEventListener('fetch', function(event) {
         );
       })
     );
+});
+
+
+self.addEventListener('activate', function(event) {
+
+  const cacheWhitelist = [CACHE_NAME];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
